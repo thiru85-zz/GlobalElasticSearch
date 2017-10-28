@@ -46,5 +46,5 @@ definitions:
 securityDefinitions:
   api_key:
     type: "apiKey"
-    name: "key"
-    in: "body"
+    name: "X-API-KEY"
+    in: "header"
