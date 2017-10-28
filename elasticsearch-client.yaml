@@ -28,7 +28,7 @@ spec:
           "-p", "8081",
           "-a", "127.0.0.1:9200",
           "-s", "suggester.gcpdemo.xyz",
-          "-v", "2017-10-28r0",
+          "-v", "2017-10-28r1",
           "-z", "healthz",
         ]
         readinessProbe:
