@@ -1,0 +1,43 @@
+swagger: "2.0"
+info:
+  title: Autocomplete API
+  description: Google Cloud Platform Demo Autocomplete API.
+  version: 1.0.0
+
+host: "suggester.gcpdemo.xyz"
+basePath: "/"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+schemes:
+- "http"
+- "https"
+paths:
+  "/products/_search":
+    get:
+      operationId: "_search"
+      #summary: Returns suggestions for typed-in entries by users
+      description: "Autocomplete suggester"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/AutocompleteResponse"
+      parameters:
+        - in: query
+          name: "q"
+          description: "Search term"
+          type: "string"
+          required: true
+          
+definitions:
+  AutocompleteResponse:
+    type: "object"
+    properties:
+      name:
+        type: "string"

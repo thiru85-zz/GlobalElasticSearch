@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: elasticsearch-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: "elasticsearch-ingress-ip"
+# spec:
+#   backend:
+#     serviceName: elasticsearchapi
+#     servicePort: 80
+spec:
+  rules:
+  - http:
+      paths:
+      # The path is the URL prefix for the service, e.g. /api/* or just /*
+      # Note that the service will receive the entire URL with the prefix
+      - path: /*
+        backend:
+          serviceName: elasticsearch
+          servicePort: 80
