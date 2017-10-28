@@ -37,8 +37,6 @@ spec:
             port: 8081
         ports:
           - containerPort: 8081
-
-
       - name: elasticsearch-client
         securityContext:
           privileged: false
@@ -58,7 +56,7 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         - name: "CLUSTER_NAME"
-          value: "myesdb"
+          value: "gcpdemoesdb"
         - name: NODE_MASTER
           value: "false"
         - name: NODE_DATA
@@ -91,4 +89,4 @@ spec:
       volumes:
       - name: elasticsearchclientdata
             persistentVolumeClaim:
-              claimName: elasticsearchdatadata
+              claimName: elasticsearchclientdata

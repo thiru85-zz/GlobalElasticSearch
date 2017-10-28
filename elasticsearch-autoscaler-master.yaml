@@ -1,0 +1,13 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hpaforelasticsearch-master
+  namespace: default
+spec:
+  minReplicas: 2
+  maxReplicas: 6
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: elasticsearch-master
+  targetCPUUtilizationPercentage: 70
