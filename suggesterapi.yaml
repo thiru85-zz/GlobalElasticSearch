@@ -34,6 +34,8 @@ paths:
           description: "Search term"
           type: "string"
           required: true
+      security:
+      - api_key: []
           
 definitions:
   AutocompleteResponse:
