@@ -43,3 +43,8 @@ definitions:
     properties:
       name:
         type: "string"
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "key"
+    in: "body"
