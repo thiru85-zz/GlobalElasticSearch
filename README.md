@@ -1,9 +1,10 @@
 # Globally Federated and AutoScalable ElasticSearch Cluster with Cloud Endpoints
 Yes, it is a mouthful.
                                                              
-## Purpose: Commands and order needed for building a federated autoscalable
-##          elasticsearch cluster on Google Container Engine on GCP
-## Date: 28/10/2017   
+Purpose: Commands and order needed for building a federated autoscalable
+elasticsearch cluster on Google Container Engine on GCP
+
+Date: 28/10/2017   
 
 ### Set auth options for gcloud before cluster auth
 
@@ -126,11 +127,23 @@ kubectl --context=federated-elasticsearch create -f elasticsearch-ingress
 
 ### Delete everything
 
-kubectl config delete-context
+#### Delete Contexts and NameSpace
+```
+kubectl config delete-context uscontext
+kubectl config delete-context asiacontext
+kubectl config delete-context europecontext
 
+kubectl delete ns federated-elasticsearch
+
+kubectl config delete-context federated-elasticsearch
+```
+
+### Delete the clusters
+```
 gcloud container clusters delete elasticsearchclusterasia01 --zone asia-southeast1-a
 gcloud container clusters delete elasticsearchclustereurope01 --zone europe-west2-a
 gcloud container clusters delete elasticsearchclusterus01 --zone us-central1-a
+```
 
 
 gcloud compute firewall-rules create federated-ingress-firewall-rule --source-ranges 130.211.0.0/22 --allow tcp:30036 --network default

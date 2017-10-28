@@ -66,9 +66,9 @@ spec:
         - name: elasticsearchmasterdata
           mountPath: /data/data
       volumes:
-      - name: elasticsearchmasterdata
-            persistentVolumeClaim:
-              claimName: elasticsearchmasterdata
+        - name: elasticsearchmasterdata
+        persistentVolumeClaim:
+          claimName: elasticsearchmasterdata
 
 
 
