@@ -9,7 +9,7 @@ spec:
     requests:
       storage: 15Gi
   storageClassName: standard
-
+---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
@@ -21,7 +21,7 @@ spec:
     requests:
       storage: 15Gi
   storageClassName: standard
-
+---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
