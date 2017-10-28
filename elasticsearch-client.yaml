@@ -87,6 +87,6 @@ spec:
         - name: elasticsearchclientdata
           mountPath: /data/data
       volumes:
-        - name: elasticsearchclientdata
+      - name: elasticsearchclientdata
         persistentVolumeClaim:
           claimName: elasticsearchclientdata
