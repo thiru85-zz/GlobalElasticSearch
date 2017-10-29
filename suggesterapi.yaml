@@ -35,7 +35,7 @@ paths:
           type: "string"
           required: true
       security:
-      - api_key: []
+        - api_key: []
           
 definitions:
   AutocompleteResponse:

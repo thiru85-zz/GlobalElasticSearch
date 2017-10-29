@@ -1,11 +1,12 @@
-apiVersion: extensions/v1beta1
-kind: Deployment
+apiVersion: apps/v1beta1
+kind: StatefulSet
 metadata:
   name: elasticsearch-data
   labels:
     component: elasticsearch
     role: data
 spec:
+  serviceName: elasticsearch-data
   replicas: 2
   template:
     metadata:
@@ -63,7 +64,13 @@ spec:
         volumeMounts:
         - name: elasticsearchdatadata
           mountPath: /data/data
-      volumes:
-      - name: elasticsearchdatadata
-        persistentVolumeClaim:
-          claimName: elasticsearchdatadata
+  volumeClaimTemplates:
+  - metadata:
+      name: elasticsearchdatadata
+      annotations:
+        volume.beta.kubernetes.io/storage-class: standard
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 15Gi

@@ -63,12 +63,9 @@ spec:
           tcpSocket:
             port: 9300
         volumeMounts:
-        - name: elasticsearchmasterdata
-          mountPath: /data/data
+        - name: storage
+          mountPath: /data
       volumes:
-      - name: elasticsearchmasterdata
-        persistentVolumeClaim:
-          claimName: elasticsearchmasterdata
-
-
-
+        - emptyDir:
+            medium: ""
+          name: storage

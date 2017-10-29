@@ -84,9 +84,9 @@ spec:
           initialDelaySeconds: 20
           timeoutSeconds: 5
         volumeMounts:
-        - name: elasticsearchclientdata
-          mountPath: /data/data
+        - name: storage
+          mountPath: /data
       volumes:
-      - name: elasticsearchclientdata
-        persistentVolumeClaim:
-          claimName: elasticsearchclientdata
+        - emptyDir:
+            medium: ""
+          name: storage
